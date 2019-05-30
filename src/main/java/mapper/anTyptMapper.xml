@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.anTyptMapper">
+  <resultMap id="BaseResultMap" type="pojo.AnTypt">
+    <id column="an_t_id" jdbcType="INTEGER" property="anTId" />
+    <result column="an_t_name" jdbcType="VARCHAR" property="anTName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    an_t_id, an_t_name
+  </sql>
+  <select id="selectByExample" parameterType="pojo.AnTyptExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from an_typt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from an_typt
+    where an_t_id = #{anTId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from an_typt
+    where an_t_id = #{anTId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="pojo.AnTyptExample">
+    delete from an_typt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="pojo.AnTypt">
+    insert into an_typt (an_t_id, an_t_name)
+    values (#{anTId,jdbcType=INTEGER}, #{anTName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.AnTypt">
+    insert into an_typt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="anTId != null">
+        an_t_id,
+      </if>
+      <if test="anTName != null">
+        an_t_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="anTId != null">
+        #{anTId,jdbcType=INTEGER},
+      </if>
+      <if test="anTName != null">
+        #{anTName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="pojo.AnTyptExample" resultType="java.lang.Long">
+    select count(*) from an_typt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update an_typt
+    <set>
+      <if test="record.anTId != null">
+        an_t_id = #{record.anTId,jdbcType=INTEGER},
+      </if>
+      <if test="record.anTName != null">
+        an_t_name = #{record.anTName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update an_typt
+    set an_t_id = #{record.anTId,jdbcType=INTEGER},
+      an_t_name = #{record.anTName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.AnTypt">
+    update an_typt
+    <set>
+      <if test="anTName != null">
+        an_t_name = #{anTName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where an_t_id = #{anTId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.AnTypt">
+    update an_typt
+    set an_t_name = #{anTName,jdbcType=VARCHAR}
+    where an_t_id = #{anTId,jdbcType=INTEGER}
+  </update>
+</mapper>
