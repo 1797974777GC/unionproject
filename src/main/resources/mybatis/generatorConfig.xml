@@ -37,7 +37,7 @@
         <table tableName="tb_animal" domainObjectName="Animal" />
         <table tableName="tb_cart" domainObjectName="Cart" />
         <table tableName="tb_message" domainObjectName="Message" />
-        <table tableName="b_product" domainObjectName="Product" />
+        <table tableName="tb_product" domainObjectName="Product" />
         <table tableName="tb_product_type" domainObjectName="ProductType" />
         <table tableName="tb_user" domainObjectName="User" />
 
