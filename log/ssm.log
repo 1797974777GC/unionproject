@@ -305,3 +305,24 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db_1901.tb_adm
 [INFO][2019-05-30 18:44|:09][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Thu May 30 18:44:07 CST 2019]; parent: Root WebApplicationContext
 [INFO][2019-05-30 18:44|:09][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
 [INFO][2019-05-30 18:44|:09][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'dispatcherServlet': initialization completed in 1816 ms
+[INFO][2019-05-30 18:44|:29][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2019-05-30 18:44|:29][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu May 30 18:44:29 CST 2019]; root of context hierarchy
+[INFO][2019-05-30 18:44|:29][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\0JAVA\ideaworkspace\unionproject\target\classes\applicationContext-dao.xml]
+[INFO][2019-05-30 18:44|:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\0JAVA\ideaworkspace\unionproject\target\classes\applicationContext-service.xml]
+[INFO][2019-05-30 18:44|:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\0JAVA\ideaworkspace\unionproject\target\classes\applicationContext-tx.xml]
+[INFO][2019-05-30 18:44|:30][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [db.properties]
+[INFO][2019-05-30 18:44|:30][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO][2019-05-30 18:44|:31][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+[INFO][2019-05-30 18:44|:31][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 2372 ms
+[INFO][2019-05-30 18:44|:32][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'dispatcherServlet': initialization started
+[INFO][2019-05-30 18:44|:32][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Thu May 30 18:44:32 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-30 18:44|:32][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2019-05-30 18:44|:32][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO][2019-05-30 18:44|:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/login]}" onto public java.lang.Object controller.AdminController.aLogin(java.lang.String,java.lang.String)
+[INFO][2019-05-30 18:44|:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Thu May 30 18:44:32 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-30 18:44|:32][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Thu May 30 18:44:32 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-30 18:44|:32][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[INFO][2019-05-30 18:44|:33][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'dispatcherServlet': initialization completed in 1075 ms
+[DEBUG][2019-05-30 18:44|:37][mapper.AdminMapper.selectByExample]==>  Preparing: select a_id, a_account, a_tele, a_name, a_pwd from tb_admin WHERE ( a_pwd = ? and a_account = ? ) 
+[DEBUG][2019-05-30 18:44|:37][mapper.AdminMapper.selectByExample]==> Parameters: 1(String), 1(String)
+[DEBUG][2019-05-30 18:44|:37][mapper.AdminMapper.selectByExample]<==      Total: 1
