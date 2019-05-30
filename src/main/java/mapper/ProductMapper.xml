@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qf.mapper.ProductMapper">
-  <resultMap id="BaseResultMap" type="com.qf.pojo.Product">
+<mapper namespace="mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="pojo.Product">
     <id column="p_id" jdbcType="INTEGER" property="pId" />
     <result column="p_url" jdbcType="VARCHAR" property="pUrl" />
     <result column="p_name" jdbcType="VARCHAR" property="pName" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     p_id, p_url, p_name, p_detail, p_price, t_id
   </sql>
-  <select id="selectByExample" parameterType="com.qf.pojo.ProductExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="pojo.ProductExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from tb_product
     where p_id = #{pId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.qf.pojo.ProductExample">
+  <delete id="deleteByExample" parameterType="pojo.ProductExample">
     delete from tb_product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.qf.pojo.Product">
+  <insert id="insert" parameterType="pojo.Product">
     insert into tb_product (p_id, p_url, p_name, 
       p_detail, p_price, t_id
       )
@@ -108,7 +108,7 @@
       #{pDetail,jdbcType=VARCHAR}, #{pPrice,jdbcType=DECIMAL}, #{tId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.pojo.Product">
+  <insert id="insertSelective" parameterType="pojo.Product">
     insert into tb_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pId != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.qf.pojo.ProductExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="pojo.ProductExample" resultType="java.lang.Long">
     select count(*) from tb_product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.Product">
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.Product">
     update tb_product
     <set>
       <if test="pUrl != null">
@@ -216,7 +216,7 @@
     </set>
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.Product">
+  <update id="updateByPrimaryKey" parameterType="pojo.Product">
     update tb_product
     set p_url = #{pUrl,jdbcType=VARCHAR},
       p_name = #{pName,jdbcType=VARCHAR},

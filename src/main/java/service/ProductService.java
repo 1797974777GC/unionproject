@@ -1,7 +1,8 @@
 package service;
 
 import pojo.Product;
-import vo.ResultVO;
+
+import java.util.List;
 
 /**
  * @program: hospital-parent
@@ -10,7 +11,7 @@ import vo.ResultVO;
  * @Description:
  */
 public interface ProductService {
-    ResultVO queryAll(Integer page, Integer limit);
+    List<Product> queryAll(Integer page, Integer limit);
 
     boolean deleteById(Integer id);
 

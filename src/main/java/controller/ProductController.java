@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Product;
 import service.ProductService;
-import vo.ResultVO;
+
+
+import java.util.List;
 
 /**
  * @program: hospital-parent
@@ -27,8 +29,8 @@ public class ProductController {
     @RequestMapping(value = "/product/", method = RequestMethod.GET)
     public Object queryProduct(@RequestParam Integer page,
                                @RequestParam Integer limit) {
-        ResultVO resultVO = productService.queryAll(page, limit);
-        return resultVO;
+        List<Product> products = productService.queryAll(page, limit);
+        return products;
     }
 
     /**
@@ -40,11 +42,7 @@ public class ProductController {
     @RequestMapping(value = "/product/{id}", method = RequestMethod.DELETE)
     public Object deleteProduct(@PathVariable Integer id) {
         boolean f = productService.deleteById(id);
-        if (f) {
-            return ResultVO.success();
-        } else {
-            return ResultVO.error();
-        }
+        return f;
     }
 
     /**
@@ -56,11 +54,7 @@ public class ProductController {
     @RequestMapping(value = "/product/", method = RequestMethod.DELETE)
     public Object deleteBatch(@RequestParam Long[] ids) {
         boolean f = productService.deleteBatch(ids);
-        if (f) {
-            return ResultVO.success();
-        } else {
-            return ResultVO.error();
-        }
+        return f;
     }
 
     /**
@@ -72,11 +66,7 @@ public class ProductController {
     @RequestMapping(value = "/product/", method = RequestMethod.POST)
     public Object addPro(Product product) {
         boolean f = productService.addPro(product);
-        if (f) {
-            return ResultVO.success();
-        } else {
-            return ResultVO.error();
-        }
+        return f;
     }
 
     /**
@@ -88,10 +78,6 @@ public class ProductController {
     @RequestMapping(value = "/product/", method = RequestMethod.PUT)
     public Object modifyPro(Product product) {
         boolean f = productService.modifyPro(product);
-        if (f) {
-            return ResultVO.success();
-        } else {
-            return ResultVO.error();
-        }
+        return f;
     }
 }
