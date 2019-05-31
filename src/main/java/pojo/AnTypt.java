@@ -1,6 +1,6 @@
 package pojo;
 
-public class AnTypt {
+public class anTypt {
     private Integer anTId;
 
     private String anTName;

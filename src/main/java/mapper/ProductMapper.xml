@@ -225,4 +225,16 @@
       t_id = #{tId,jdbcType=INTEGER}
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
+
+  <select id="queryAllByPage" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from tb_product
+    limit #{page},#{limit}
+  </select>
+  <delete id="deleteBatch" parameterType="java.lang.Integer">
+    delete from tb_product
+    where p_id in
+    <foreach collection="ids" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>

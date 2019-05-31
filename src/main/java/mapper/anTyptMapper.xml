@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.anTyptMapper">
-  <resultMap id="BaseResultMap" type="pojo.AnTypt">
+  <resultMap id="BaseResultMap" type="pojo.anTypt">
     <id column="an_t_id" jdbcType="INTEGER" property="anTId" />
     <result column="an_t_name" jdbcType="VARCHAR" property="anTName" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     an_t_id, an_t_name
   </sql>
-  <select id="selectByExample" parameterType="pojo.AnTyptExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="pojo.anTyptExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,17 +90,17 @@
     delete from an_typt
     where an_t_id = #{anTId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="pojo.AnTyptExample">
+  <delete id="deleteByExample" parameterType="pojo.anTyptExample">
     delete from an_typt
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="pojo.AnTypt">
+  <insert id="insert" parameterType="pojo.anTypt">
     insert into an_typt (an_t_id, an_t_name)
     values (#{anTId,jdbcType=INTEGER}, #{anTName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pojo.AnTypt">
+  <insert id="insertSelective" parameterType="pojo.anTypt">
     insert into an_typt
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="anTId != null">
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="pojo.AnTyptExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="pojo.anTyptExample" resultType="java.lang.Long">
     select count(*) from an_typt
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="pojo.AnTypt">
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.anTypt">
     update an_typt
     <set>
       <if test="anTName != null">
@@ -156,7 +156,7 @@
     </set>
     where an_t_id = #{anTId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="pojo.AnTypt">
+  <update id="updateByPrimaryKey" parameterType="pojo.anTypt">
     update an_typt
     set an_t_name = #{anTName,jdbcType=VARCHAR}
     where an_t_id = #{anTId,jdbcType=INTEGER}

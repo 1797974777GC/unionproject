@@ -3,14 +3,14 @@ package pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnTyptExample {
+public class anTyptExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AnTyptExample() {
+    public anTyptExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

@@ -1,9 +1,10 @@
 package mapper;
 
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import pojo.Product;
 import pojo.ProductExample;
+
+import java.util.List;
 
 public interface ProductMapper {
     long countByExample(ProductExample example);
@@ -27,4 +28,8 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> queryAllByPage(@Param("page") Integer page, @Param("limit") Integer limit);
+
+    int deleteBatch(@Param("ids") Long[] ids);
 }
