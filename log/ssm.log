@@ -347,3 +347,26 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'db_1901.tb_adm
 [DEBUG][2019-05-30 19:10|:58][mapper.AdminMapper.selectByExample]==>  Preparing: select a_id, a_account, a_tele, a_name, a_pwd from tb_admin WHERE ( a_pwd = ? and a_account = ? ) 
 [DEBUG][2019-05-30 19:10|:58][mapper.AdminMapper.selectByExample]==> Parameters: 1(String), 1(String)
 [DEBUG][2019-05-30 19:10|:58][mapper.AdminMapper.selectByExample]<==      Total: 1
+[INFO][2019-05-31 19:38|:44][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2019-05-31 19:38|:44][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Fri May 31 19:38:44 CST 2019]; root of context hierarchy
+[INFO][2019-05-31 19:38|:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\java_all\git_work\1\unionproject\target\classes\applicationContext-dao.xml]
+[INFO][2019-05-31 19:38|:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\java_all\git_work\1\unionproject\target\classes\applicationContext-service.xml]
+[INFO][2019-05-31 19:38|:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from file [E:\java_all\git_work\1\unionproject\target\classes\applicationContext-tx.xml]
+[INFO][2019-05-31 19:38|:46][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [db.properties]
+[INFO][2019-05-31 19:38|:46][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO][2019-05-31 19:38|:47][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+[INFO][2019-05-31 19:38|:48][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 3467 ms
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'dispatcherServlet': initialization started
+[INFO][2019-05-31 19:38|:48][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri May 31 19:38:48 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-31 19:38|:48][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2019-05-31 19:38|:48][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/admin/login]}" onto public java.lang.Object controller.AdminController.aLogin(java.lang.String,java.lang.String)
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/product/],methods=[GET]}" onto public java.lang.Object controller.ProductController.queryProduct(java.lang.Integer,java.lang.Integer)
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/product/{id}],methods=[DELETE]}" onto public java.lang.Object controller.ProductController.deleteProduct(java.lang.Integer)
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/product/],methods=[DELETE]}" onto public java.lang.Object controller.ProductController.deleteBatch(java.lang.Long[])
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/product/],methods=[POST]}" onto public java.lang.Object controller.ProductController.addPro(pojo.Product)
+[INFO][2019-05-31 19:38|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/product/],methods=[PUT]}" onto public java.lang.Object controller.ProductController.modifyPro(pojo.Product)
+[INFO][2019-05-31 19:38|:49][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri May 31 19:38:48 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-31 19:38|:49][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri May 31 19:38:48 CST 2019]; parent: Root WebApplicationContext
+[INFO][2019-05-31 19:38|:49][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+[INFO][2019-05-31 19:38|:49][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'dispatcherServlet': initialization completed in 1395 ms

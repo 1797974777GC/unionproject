@@ -16,7 +16,7 @@
 
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/db_shop?characterEncoding=utf8" userId="root" password="123"/>
+                        connectionURL="jdbc:mysql://localhost:3306/hospital?characterEncoding=utf8" userId="root" password="1234"/>
         <!--指定生成entity实体类的具体位置-->
         <javaModelGenerator targetPackage="pojo" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
@@ -32,14 +32,14 @@
         </javaClientGenerator>
 
         <!-- 要生成entity/mapper的表名及自定义的DO名 -->
-        <table tableName="an_typt" domainObjectName="anTypt" />
-        <table tableName="tb_admin" domainObjectName="Admin" />
+        <table tableName="an_typt" domainObjectName="AnTypt" />
+        <!--<table tableName="tb_admin" domainObjectName="Admin" />
         <table tableName="tb_animal" domainObjectName="Animal" />
         <table tableName="tb_cart" domainObjectName="Cart" />
         <table tableName="tb_message" domainObjectName="Message" />
         <table tableName="tb_product" domainObjectName="Product" />
         <table tableName="tb_product_type" domainObjectName="ProductType" />
-        <table tableName="tb_user" domainObjectName="User" />
+        <table tableName="tb_user" domainObjectName="User" />-->
 
         <!--<table tableName="product_brand" domainObjectName="ProductBrand" />-->
 
