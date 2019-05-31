@@ -354,6 +354,66 @@ public class MessageExample {
             addCriterion("u_id not between", value1, value2, "uId");
             return (Criteria) this;
         }
+
+        public Criteria andMFlagIsNull() {
+            addCriterion("m_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagIsNotNull() {
+            addCriterion("m_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagEqualTo(Integer value) {
+            addCriterion("m_flag =", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagNotEqualTo(Integer value) {
+            addCriterion("m_flag <>", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagGreaterThan(Integer value) {
+            addCriterion("m_flag >", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagGreaterThanOrEqualTo(Integer value) {
+            addCriterion("m_flag >=", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagLessThan(Integer value) {
+            addCriterion("m_flag <", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagLessThanOrEqualTo(Integer value) {
+            addCriterion("m_flag <=", value, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagIn(List<Integer> values) {
+            addCriterion("m_flag in", values, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagNotIn(List<Integer> values) {
+            addCriterion("m_flag not in", values, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagBetween(Integer value1, Integer value2) {
+            addCriterion("m_flag between", value1, value2, "mFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andMFlagNotBetween(Integer value1, Integer value2) {
+            addCriterion("m_flag not between", value1, value2, "mFlag");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
