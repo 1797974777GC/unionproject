@@ -37,12 +37,11 @@ public class CartController {
         return "error";
     }
 
-    @RequestMapping(value = "/usercart/{uid}",method = RequestMethod.GET)
-    public Object userCart(@PathVariable Integer uid,
-                            HttpSession session){
+    @RequestMapping(value = "/usercart",method = RequestMethod.GET)
+    public Object userCart(HttpSession session){
 
-       //User user = (User) session.getAttribute("activeUser");
-       //Integer uid = user.getuId();
+       User user = (User) session.getAttribute("activeUser");
+       Integer uid = user.getuId();
         List<CartExpend> cartExpends = cartService.queryUserCart(uid);
         return cartExpends;
     }
