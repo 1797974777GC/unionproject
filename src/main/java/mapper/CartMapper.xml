@@ -193,4 +193,13 @@
       p_num = #{pNum,jdbcType=INTEGER}
     where c_id = #{cId,jdbcType=INTEGER}
   </update>
+
+
+  <!--int deleteBatch(@Param("cids") Integer[] cids);-->
+  <delete id="deleteBatch">
+        delete from tb_cart where c_id in
+        <foreach collection="cids" item="cid" separator="," open="(" close=")">
+            #{cid}
+        </foreach>
+  </delete>
 </mapper>
