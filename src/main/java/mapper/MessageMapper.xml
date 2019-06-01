@@ -208,4 +208,7 @@
       m_flag = #{mFlag,jdbcType=INTEGER}
     where m_id = #{mId,jdbcType=INTEGER}
   </update>
+  <select id="selectNews" resultMap="BaseResultMap">
+    select * from tb_message where m_flag=1 order by m_date
+  </select>
 </mapper>
