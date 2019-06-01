@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<context:component-scan base-package="com.ssm.controller"/>
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/v/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+   <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+          p:defaultEncoding="utf-8"
+          p:maxUploadSize="#{5*1024*1024}"
+          p:uploadTempDir="file:D:\tem"></bean>-->
+
+
+
+    <!-- 开启aop，对类代理 -->
+    <!--不加该句话 无法使用shiro的注解-->
+
+    <!--
+    当使用shiro注解权限的时候,这几个配置必须放在spirngmvc中
+    使用注解模式声明权限或者角色的时候UnauthorizedUrl这个配置是无效的
+    需要自己手动捕获异常,然后跳转页面
+
+    -->
+    <!-- <aop:config proxy-target-class="true"> </aop:config>-->
+
+    <!-- =========================================================
+         Shiro Spring-specific integration
+         ========================================================= -->
+    <!-- Post processor that automatically invokes init() and destroy() methods
+         for Spring-configured Shiro objects so you don't have to
+         1) specify an init-method and destroy-method attributes for every bean
+            definition and
+         2) even know which Shiro objects require these methods to be
+            called. -->
+    <!--配置后置处理器，配置完成之后，可以自动调用配置在spring ioc容器中的shiro对象的 init和destory方法-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- Enable Shiro Annotations for Spring-configured beans.  Only run after
+         the lifecycleBeanProcessor has run: -->
+    <!--陪住开启shiro的注解功能 但是依赖于lifecycleBeanPostProcessor的配置-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="uploadTempDir" value="file:D:\temp"/>
+        <property name="maxUploadSizePerFile" value="5024000"/>
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="50240000"/>
+    </bean>
+</beans>
