@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import pojo.Cart;
 import pojo.CartExample;
+import pojo.CartExpend;
 
 public interface CartMapper {
     long countByExample(CartExample example);
@@ -29,4 +30,7 @@ public interface CartMapper {
     int updateByPrimaryKey(Cart record);
 
     int deleteBatch(@Param("cids") Integer[] cids);
+
+
+    List<CartExpend> queryUserCart(Integer uid);
 }

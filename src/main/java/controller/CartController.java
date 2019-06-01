@@ -1,14 +1,13 @@
 package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pojo.CartExpend;
 import pojo.User;
 import service.CartService;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 public class CartController {
@@ -36,6 +35,16 @@ public class CartController {
             return "success";
         }
         return "error";
+    }
+
+    @RequestMapping(value = "/usercart/{uid}",method = RequestMethod.GET)
+    public Object userCart(@PathVariable Integer uid,
+                            HttpSession session){
+
+       //User user = (User) session.getAttribute("activeUser");
+       //Integer uid = user.getuId();
+        List<CartExpend> cartExpends = cartService.queryUserCart(uid);
+        return cartExpends;
     }
 
 }

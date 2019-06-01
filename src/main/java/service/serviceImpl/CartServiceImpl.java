@@ -4,7 +4,11 @@ import mapper.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pojo.Cart;
+import pojo.CartExpend;
 import service.CartService;
+
+import java.util.List;
+
 @Service
 public class CartServiceImpl implements CartService {
     @Autowired
@@ -25,4 +29,15 @@ public class CartServiceImpl implements CartService {
         int i= cartMapper.insertSelective(cart);
         return i>0;
     }
+
+    @Override
+    public List<CartExpend> queryUserCart(Integer uid) {
+        if(uid != null){
+            List<CartExpend> cartExpends = cartMapper.queryUserCart(uid);
+            return cartExpends;
+        }
+       return null;
+    }
+
+
 }

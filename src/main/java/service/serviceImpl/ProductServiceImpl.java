@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pojo.Product;
 import service.ProductService;
+import vo.ResultVO;
 
 
 import java.util.List;
@@ -76,5 +77,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean modifyPro(Product product) {
         return productMapper.updateByPrimaryKeySelective(product) > 0;
+    }
+
+    @Override
+    public ResultVO queryProducts(Integer page, Integer limit, String pName) {
+
+        List<Product> products = productMapper.queryProducts((page - 1)*limit, limit, pName);
+        long count = productMapper.countByExample(null);
+        return ResultVO.success(count,products);
     }
 }

@@ -32,4 +32,6 @@ public interface ProductMapper {
     List<Product> queryAllByPage(@Param("page") Integer page, @Param("limit") Integer limit);
 
     int deleteBatch(@Param("ids") Long[] ids);
+
+    List<Product> queryProducts(@Param("page") int i, @Param("limit") Integer limit, @Param("pName")String pName);
 }

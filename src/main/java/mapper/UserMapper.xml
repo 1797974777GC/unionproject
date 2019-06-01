@@ -255,4 +255,5 @@
       u_flag = #{uFlag,jdbcType=INTEGER}
     where u_id = #{uId,jdbcType=INTEGER}
   </update>
+
 </mapper>

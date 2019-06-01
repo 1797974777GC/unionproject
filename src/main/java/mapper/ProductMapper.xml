@@ -237,4 +237,14 @@
       #{id}
     </foreach>
   </delete>
+
+  <select id="queryProducts" resultMap="BaseResultMap">
+    select * from tb_product
+    <where>
+      <if test="pName != null and pName != ''">
+        and p_name like concat("%",#{pName},"%")
+      </if>
+    </where>
+    limit #{page},#{limit}
+  </select>
 </mapper>

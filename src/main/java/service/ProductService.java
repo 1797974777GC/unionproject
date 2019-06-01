@@ -1,6 +1,7 @@
 package service;
 
 import pojo.Product;
+import vo.ResultVO;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface ProductService {
     boolean addPro(Product product);
 
     boolean modifyPro(Product product);
+
+    ResultVO queryProducts(Integer page, Integer limit, String pName);
 }

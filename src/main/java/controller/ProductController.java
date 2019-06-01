@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pojo.Product;
 import service.ProductService;
+import vo.ResultVO;
 
 
 import java.util.List;
@@ -79,5 +80,21 @@ public class ProductController {
     public Object modifyPro(Product product) {
         boolean f = productService.modifyPro(product);
         return f;
+    }
+
+    /**
+     * 分页显示产品 并给出条件时按条件查询
+     * @param page
+     * @param limit
+     * @param pName
+     * @return
+     */
+    @RequestMapping(value = "/productpages",method = RequestMethod.GET)
+    public Object cartByPages(@RequestParam(defaultValue = "1") Integer page,
+                              @RequestParam(defaultValue = "10") Integer limit,
+                              String pName){
+
+        ResultVO resultVO = productService.queryProducts(page, limit, pName);
+        return resultVO;
     }
 }

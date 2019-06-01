@@ -202,4 +202,13 @@
             #{cid}
         </foreach>
   </delete>
+
+  <select id="queryUserCart" resultMap="CartExpendMap">
+    SELECT * FROM  tb_cart AS c LEFT JOIN tb_product
+    AS p ON p.p_id = c.p_id WHERE c.u_id = #{uid}
+  </select>
+
+  <resultMap id="CartExpendMap" type="cartexpend" extends="BaseResultMap">
+    <association property="product" resultMap="mapper.ProductMapper.BaseResultMap"/>
+  </resultMap>
 </mapper>
